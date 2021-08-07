@@ -1,0 +1,2 @@
+1. Best practice, definere små klasser i samme cpp, samme h, eller flere separate headers og source filer?
+2. Hvor inkludere <string> for å få tilgang til to_string?

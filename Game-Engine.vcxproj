@@ -142,10 +142,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\collision.cpp" />
+    <ClCompile Include="source\shapes.cpp" />
     <ClCompile Include="source\Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\collision.h" />
+    <ClInclude Include="headers\shapes.h" />
     <ClInclude Include="headers\Source.h" />
+    <ClInclude Include="headers\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="headers\Questions.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
