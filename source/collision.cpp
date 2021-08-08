@@ -6,6 +6,8 @@ void Collision::check_collision(Polygon a, Polygon b){
 	//std::vector<std::vector<double>> dotsA; // dots[normal][edge]
 	//std::vector<std::vector<double>> dotsB;
 
+	Vec p1 = this->project(a, a.axises.at(0));
+	Vec p2 = this->project(b, a.axises.at(0));
 	
 	
 	std::cout << "overlaps!\n";
@@ -26,6 +28,7 @@ Vec Collision::project(Polygon p, Vec axis) {
 			max = temp;
 		}
 	}
+	
 
 	return Vec(min,max);
 }

@@ -44,6 +44,10 @@ public:
 		return Vec(this->x / other, this->y / other);
 	}
 
+	Vec operator*(double other) {
+		return Vec(this->x * other, this->y * other);
+	}
+
 	double dot(Vec& other) {
 		return (this->x * other.x) + (this->y * other.y);
 	}

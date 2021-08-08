@@ -52,6 +52,14 @@ int main(int argc, char* argv[]) {
 	col.check_collision(box1, box2);
 	col.check_collision(box1, box2);
 
+	Polygon bb(Vec(0, 0));
+	bb + Vec(5, 0);
+	bb.add_edges();
+	bb.add_axises();
+
+	Vec v1(5, 0);
+	v1 = v1 * (1 / v1.len());
+	std::cout << "testpoly: " << bb << std::endl;
 
 	return 0;
 }

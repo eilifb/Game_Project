@@ -1,4 +1,5 @@
 #include "shapes.h"
+#include <iostream>
 
 Polygon::Polygon(std::vector<Vec>& input) : vertices(input){
 	this->vertices = input;
@@ -23,7 +24,10 @@ void Polygon::add_edges(){
 
 void Polygon::add_axises(){
 	for (Vec v : edges) {
-		axises.push_back(v.normal());
+		if (v.len() == 0) {
+			std::cout << "vector length 0, something must have gone wrong" << std::endl;
+		}
+		axises.push_back(v.normal() * 1/v.len());
 	}
 }
 
@@ -33,7 +37,7 @@ void  Polygon::operator+(const Vec& other) {
 
 std::ostream& operator<<(std::ostream& out, const Polygon& p){
 	out << "( ";
-	for (Vec v : p.vertices) {
+	for (Vec v : p.axises) {
 		out << v << ", ";
 	}
 	out << " )";
