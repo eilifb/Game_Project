@@ -1,6 +1,11 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#define println(x) std::cout << x << std::endl;
+#define valuelnx) ", " << #x << ": " << x
+
+
+
 #include <ostream>
 
 /// <summary>
@@ -35,6 +40,10 @@ public:
 	Vec& operator-() {
 		Vec ret(-this->x, -this->y);
 		return ret;
+	}
+
+	int dot(Vec& other) {
+		return (this->x * other.x) + (this->y * other.y);
 	}
 
 	friend std::ostream& operator<< (std::ostream& strm, const Vec& input) {
