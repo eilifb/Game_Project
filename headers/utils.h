@@ -27,14 +27,12 @@ public:
 	/// <param name="b"></param>
 	Vec(double x, double y) : x(x),y(y){}
 
-	Vec& operator+(const Vec& other) {
-		Vec ret(this->x + other.x, this->y + other.y);
-		return ret;
+	Vec operator+(const Vec& other) {
+		return Vec(this->x + other.x, this->y + other.y);
 	}
 
-	Vec& operator-(const Vec& other) {
-		Vec ret(this->x - other.x, this->y - other.y);
-		return ret;
+	Vec operator-(const Vec& other) {
+		return Vec(this->x - other.x, this->y - other.y);
 	}
 
 	Vec& operator-() {
@@ -42,13 +40,16 @@ public:
 		return ret;
 	}
 
+	Vec operator/ (double other) {
+		return Vec(this->x / other, this->y / other);
+	}
+
 	double dot(Vec& other) {
 		return (this->x * other.x) + (this->y * other.y);
 	}
 
-	Vec& normal() {
-		Vec ret(-this->y, this->x);
-		return ret;
+	Vec normal() {
+		return Vec(-this->y, this->x);
 	}
 
 	float len() {
