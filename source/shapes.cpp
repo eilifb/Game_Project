@@ -30,7 +30,7 @@ void Polygon::add_edges(){
 }	
 
 void Polygon::add_normals(){
-	for (int i = 0; i < vertices.size(); i++) {
-
+	for (Vec v : edges) {
+		normals.push_back(v.perp());
 	}
 }
