@@ -6,37 +6,7 @@ void Collision::check_collision(Polygon a, Polygon b){
 	//std::vector<std::vector<double>> dotsA; // dots[normal][edge]
 	//std::vector<std::vector<double>> dotsB;
 
-	for (int i = 0; i < a.normals.size(); i++) {
-		Vec p1 = this->project(a, a.normals.at(i));
-		Vec p2 = this->project(b, a.normals.at(i));
-
-		if (!(p1.x < p2.y && p1.x > p2.x)) {
-			std::cout << "!(p1.x" << p1.x << " < p2.y" << p2.y << " && " << p1.x << "> " << p2.x << ")\n";
-			std::cout << "cannot overlap.\n";
-			return;
-		}
-		if (!(p2.x < p1.y && p2.x > p1.x)) {
-			std::cout << "!(" << p2.x << " < " << p1.y << " && " << p2.x << "> " << p1.x << ")\n";
-			std::cout << "cannot overlap.\n";
-			return;
-		}
-	}
-
-	for (int i = 0; i < b.normals.size(); i++) {
-		Vec p1 = this->project(a, a.normals.at(i));
-		Vec p2 = this->project(b, a.normals.at(i));
-
-		if (!(p1.x < p2.y && p1.x > p2.x)) {
-			std::cout << "!(" << p1.x << " < " << p2.y << " && " << p1.x << "> " << p2.x << ")\n";
-			std::cout << "cannot overlap.\n";
-			return;
-		}
-		if (!(p2.x < p1.y && p2.x > p1.x)) {
-			std::cout << "!(" << p2.x << " < " << p1.y << " && " << p2.x << "> " << p1.x << ")\n";
-			std::cout << "cannot overlap.\n";
-			return;
-		}
-	}
+	
 	
 	std::cout << "overlaps!\n";
 	return;

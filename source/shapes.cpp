@@ -3,7 +3,7 @@
 Polygon::Polygon(std::vector<Vec>& input) : vertices(input){
 	this->vertices = input;
 	this->add_edges();
-	this->add_normals();
+	this->add_axises();
 }
 
 Polygon::Polygon(Vec input){
@@ -22,8 +22,8 @@ std::vector<Vec> Polygon::get_edges(){
 	return this->edges;
 }
 
-std::vector<Vec> Polygon::get_normals(){
-	return this->normals;
+std::vector<Vec> Polygon::get_axises(){
+	return this->axises;
 }
 
 void Polygon::add_edges(){
@@ -33,9 +33,9 @@ void Polygon::add_edges(){
 	edges.push_back(vertices.front() - vertices.back());
 }	
 
-void Polygon::add_normals(){
+void Polygon::add_axises(){
 	for (Vec v : edges) {
-		normals.push_back(v.perp());
+		axises.push_back(v.normal());
 	}
 }
 

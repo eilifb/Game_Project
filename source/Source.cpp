@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
 	box1 + Vec(3, 5);
 
 	box1.add_edges();
-	box1.add_normals();
+	box1.add_axises();
 
 	Polygon box2(Vec(9, 8));
 	box2 + Vec(10, 8);
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
 	box2 + Vec(9, 5);
 
 	box2.add_edges();
-	box2.add_normals();
+	box2.add_axises();
 
 	Polygon box3(Vec(6, 9));
 	box3 + Vec(8, 9);
@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
 	box3 + Vec(6, 7);
 
 	box3.add_edges();
-	box3.add_normals();
+	box3.add_axises();
 
 
 	std::cout << box1 << std::endl;

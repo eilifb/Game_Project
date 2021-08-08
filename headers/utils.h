@@ -46,9 +46,18 @@ public:
 		return (this->x * other.x) + (this->y * other.y);
 	}
 
-	Vec& perp() {
+	Vec& normal() {
 		Vec ret(-this->y, this->x);
 		return ret;
+	}
+
+	float len() {
+		return std::sqrt((x * x) + (y * y));
+	}
+
+	Vec unit() {
+		float len = this->len();
+		return Vec(x / len, y / len);
 	}
 
 	friend std::ostream& operator<< (std::ostream& strm, const Vec& input) {
