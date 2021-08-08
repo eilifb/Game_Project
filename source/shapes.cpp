@@ -1,9 +1,13 @@
 #include "shapes.h"
 
-Polygon::Polygon(std::vector<Vec>& input) : vertices(input){}
+Polygon::Polygon(std::vector<Vec>& input) : vertices(input){
+	this->vertices = input;
+	this->add_edges();
+	this->add_normals();
+}
 
-Polygon::Polygon(Vec input)
-{
+Polygon::Polygon(Vec input){
+	this->vertices.push_back(input);
 }
 
 Polygon::~Polygon()
@@ -33,4 +37,17 @@ void Polygon::add_normals(){
 	for (Vec v : edges) {
 		normals.push_back(v.perp());
 	}
+}
+
+void  Polygon::operator+(const Vec& other) {
+	this->vertices.push_back(other);
+}
+
+std::ostream& operator<<(std::ostream& out, const Polygon& p){
+	out << "( ";
+	for (Vec v : p.vertices) {
+		out << v << ", ";
+	}
+	out << " )";
+	return out;
 }

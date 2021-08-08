@@ -14,14 +14,19 @@ class Box {
 
 
 class Polygon {
+
+public:
 	std::vector<Vec> vertices; //points making up the polygon
 	std::vector<Vec> edges; //lines between vertices
 	std::vector<Vec> normals; //left normals for the edges of the Polygon
 
-public:
 	Polygon(std::vector<Vec>& input);
 	Polygon(Vec input);
 	~Polygon();
+
+	void  operator+(const Vec& other);
+
+	friend std::ostream& operator<< (std::ostream& out, const Polygon& p);
 
 	std::vector<Vec> get_vertices();
 	std::vector<Vec> get_edges();

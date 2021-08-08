@@ -13,7 +13,7 @@
 /// </summary>
 class Vec {
 public:
-	int x, y;
+	double x, y;
 
 	/// <summary>
 	/// Creates a vector (0,0)
@@ -25,7 +25,7 @@ public:
 	/// </summary>
 	/// <param name="a"></param>
 	/// <param name="b"></param>
-	Vec(int x, int y) : x(x),y(y){}
+	Vec(double x, double y) : x(x),y(y){}
 
 	Vec& operator+(const Vec& other) {
 		Vec ret(this->x + other.x, this->y + other.y);
@@ -42,7 +42,7 @@ public:
 		return ret;
 	}
 
-	int dot(Vec& other) {
+	double dot(Vec& other) {
 		return (this->x * other.x) + (this->y * other.y);
 	}
 
