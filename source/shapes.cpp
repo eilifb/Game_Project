@@ -10,21 +10,9 @@ Polygon::Polygon(Vec input){
 	this->vertices.push_back(input);
 }
 
-Polygon::~Polygon()
-{
+Polygon::~Polygon(){
 }
 
-std::vector<Vec> Polygon::get_vertices(){
-	return this->vertices;
-}
-
-std::vector<Vec> Polygon::get_edges(){
-	return this->edges;
-}
-
-std::vector<Vec> Polygon::get_axises(){
-	return this->axises;
-}
 
 void Polygon::add_edges(){
 	for (int i = 0; i < vertices.size() - 1; i++) {
