@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
 
 	std::cout << box1 << std::endl;
 
-	col.check_collision(box1, box2);
+	col.check_collision(box1, box3);
 	col.check_collision(box1, box2);
 
 	Polygon bb(Vec(0, 0));
@@ -59,9 +59,9 @@ int main(int argc, char* argv[]) {
 
 	Vec v1(5, 0);
 	v1 = v1 * (1 / v1.len());
-	box1.print_axises();
-	box1.print_edges();
 	box1.print_vertices();
+	box1.print_edges();
+	box1.print_axises();
 
 	return 0;
 }

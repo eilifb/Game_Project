@@ -65,7 +65,7 @@ void  Polygon::operator+(const Vec& other) {
 
 std::ostream& operator<<(std::ostream& out, const Polygon& p){
 	out << "( ";
-	for (Vec v : p.axises) {
+	for (Vec v : p.vertices) {
 		out << v << ", ";
 	}
 	out << " )";
