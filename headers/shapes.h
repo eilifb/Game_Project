@@ -18,7 +18,7 @@ class Polygon {
 public:
 	std::vector<Vec> vertices; //points making up the polygon
 	std::vector<Vec> edges; //lines between vertices
-	std::vector<Vec> axises; //left normals for the edges of the Polygon
+	std::vector<Vec> axises; //left normalized normals for the edges of the Polygon
 
 	Polygon(std::vector<Vec>& input);
 	Polygon(Vec input);
@@ -30,6 +30,10 @@ public:
 
 	void add_edges();
 	void add_axises();
+	
+	void print_vertices();
+	void print_edges();
+	void print_axises();
 
 
 
