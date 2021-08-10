@@ -59,7 +59,9 @@ int main(int argc, char* argv[]) {
 
 	Vec v1(5, 0);
 	v1 = v1 * (1 / v1.len());
-	std::cout << "testpoly: " << bb << std::endl;
+	box1.print_axises();
+	box1.print_edges();
+	box1.print_vertices();
 
 	return 0;
 }

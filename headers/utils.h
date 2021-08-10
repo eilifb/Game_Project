@@ -66,7 +66,7 @@ public:
 	}
 
 	friend std::ostream& operator<< (std::ostream& strm, const Vec& input) {
-		return strm << "V(" << input.x << ", " << input.y << ")";
+		return strm << "(" << input.x << "," << input.y << ")";
 	}
 };
 
