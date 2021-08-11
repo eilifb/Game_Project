@@ -33,8 +33,14 @@ void Collision::check_collision(Polygon a, Polygon b){
 }
 
 Vec Collision::project(Polygon p, Vec axis) {
-	double min = axis.dot(p.vertices.at(0));
-	double max = min;
+	/* (see vector_projection_math for a more readable notation.
+	* The projecton of vector a onto vector b is defined as ((a.b)/b.b))*b where . denotes the dot product of a and b.
+	* This can also be written as (a.b')*b' where ' denotes the normalization of b (a vector with the length of 1 in the direction of b).
+	* I chose to normalize (turn a vector into a unit vector) the Polygon.axises we are projecting onto we can use simpler computation
+	* (a.b')*b = ((ax*bx + ay*by)*bx,(ax*bx + ay*by)*by) 
+	*/
+	Vec proj = axis*axis.dot(p.vertices.at(0));
+	Vec temp;
 	
 	for (int i = 1; i < p.vertices.size(); i++) {
 		double temp = axis.dot(p.vertices.at(i));
