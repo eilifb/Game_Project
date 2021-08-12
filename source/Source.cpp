@@ -46,11 +46,16 @@ int main(int argc, char* argv[]) {
 	box3.add_edges();
 	box3.add_axises();
 
+	Polygon tri1(Vec(5, 4));
+	tri1 + Vec(8, 6);
+	tri1 + Vec(8, 4);
+	
+	tri1.add_edges();
+	tri1.add_axises();
 
-	std::cout << box1 << std::endl;
 
-	col.check_collision(box1, box3);
-	col.check_collision(box1, box2);
+	//col.check_collision(box1, box3);
+	col.check_collision(box1, tri1);
 
 	Polygon bb(Vec(0, 0));
 	bb + Vec(5, 0);
