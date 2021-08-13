@@ -57,8 +57,8 @@ Vec Collision::project(Polygon p, Vec axis) {
 
 	//TODO: check if this math can be optimized. E.g do the normalization of axis here, or even compute the normal/axis directly here.
 	//Vec proj = axis*axis.dot(p.vertices.at(0));
-	Vec proj_min(DBL_MAX, DBL_MAX);
-	Vec proj_max(0, 0);
+	Vec proj_start(DBL_MAX, DBL_MAX);
+	Vec proj_end(0, 0);
 	Vec temp;
 	
 
@@ -69,15 +69,15 @@ Vec Collision::project(Polygon p, Vec axis) {
 	for (int i = 0; i < p.vertices.size(); i++) {
 		temp = axis*axis.dot(p.vertices.at(i));
 
-		if (temp.len() < proj_min.len()) {
-			proj_min = temp;
+		if (temp.len() < proj_start.len()) {
+			proj_start = temp;
 		}
-		else if (temp.len() > proj_max.len()) {
-			proj_max = temp;
+		else if (temp.len() > proj_end.len()) {
+			proj_end = temp;
 		}
 	}
 	
-
+	println("\n\nThe start point: " << proj_start << ", end point: " << proj_end);
 	//println("max: " << proj_max.len() << ", min: " << proj_min.len() << " on axis " << axis);
-	return Vec(proj_min.len(),proj_max.len());
+	return Vec(proj_start.len(),proj_end.len());
 }
