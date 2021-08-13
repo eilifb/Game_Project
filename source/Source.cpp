@@ -64,16 +64,17 @@ int main(int argc, char* argv[]) {
 
 	Vec v1(5, 0);
 	v1 = v1 * (1 / v1.len());
-	box1.print_vertices();
+	/*box1.print_vertices();
 	box1.print_edges();
-	box1.print_axises();
+	box1.print_axises();*/
 
 	Vec a(-0.5547, 0.8320);
 	Vec b(5, 4);
 	Vec c(8, 4);
+	Vec d(8, 6);
 
 	Vec res1 = a * a.dot(b);
 	Vec res2 = a * a.dot(c);
-	println("\n\n\n" << res1 << ", " << res2);
+	//println("\n\n\n" << res1 << ", " << res2);
 	return 0;
 }

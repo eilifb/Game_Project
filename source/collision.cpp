@@ -11,13 +11,13 @@ void Collision::check_collision(Polygon a, Polygon b){
 	double overlap_check = 0;
 	Vec mtv(DBL_MAX,DBL_MAX);
 	Vec mtv_check(0,0);
-	for(Vec axis : a.axises) {
+	/*for(Vec axis : a.axises) {
 		p1 = this->project(a, axis);
 		p2 = this->project(b, axis);
 		
 		if ((p1.y < p2.x) || (p2.y < p1.x)) {
 			std::cout << "no overlap! " << std::endl;
-			return;
+			break;
 		}
 
 		mtv_check = axis*(p1.y - p2.x);
@@ -26,24 +26,26 @@ void Collision::check_collision(Polygon a, Polygon b){
 		if (mtv_check.len() < mtv.len()) {
 			mtv = mtv_check;
 		}
-	}
+	}*/
+	println("done with first loop")
 	for (Vec axis : b.axises) {
 		p1 = this->project(a, axis);
 		p2 = this->project(b, axis);
-		if ((p1.y < p2.x) || (p2.y < p1.x)) {
+		if ((p1.y < p2.x) || !(p2.y < p1.x)) {
 			std::cout << "no overlap! " << std::endl;
-			return;
+			//break;
 		}
 
-		mtv_check = axis * (p1.y - p2.x);
-		println("axis " << axis << " gave p1: " << p1 << " and p2: " << p2 << " with overlap " << mtv_check << ", len " << mtv_check.len());
+		mtv_check = axis * (p2.len() - p1.len());
+		println("\naxis " << axis << " gave p1: " << p1.len() << " and p2: " << p2.len() << " with overlap " << mtv_check << ", len " << mtv_check.len());
 
 		if (mtv_check.len() < mtv.len()) {
 			mtv = mtv_check;
 		}
+		break;
 	}	
 	
-	println("The polygons overlap. MTV is " << mtv << " with a length of " << mtv.len())
+	//println("The polygons overlap. MTV is " << mtv << " with a length of " << mtv.len())
 	return;
 }
 
@@ -66,18 +68,22 @@ Vec Collision::project(Polygon p, Vec axis) {
 	* We are projecting the entire polygon onto the axis. In other words we have to check every vertice to find the "extreme points"
 	* of the polygon when its projected onto the axis.
 	*/
+	Vec max(0,0);
+	Vec min(0,0);
+
 	for (int i = 0; i < p.vertices.size(); i++) {
 		temp = axis*axis.dot(p.vertices.at(i));
-
 		if (temp.len() < proj_start.len()) {
 			proj_start = temp;
+			min = p.vertices.at(i);
 		}
-		else if (temp.len() > proj_end.len()) {
+		if (temp.len() > proj_end.len()) {
 			proj_end = temp;
+			max = p.vertices.at(i);
 		}
+		//println("point " << p.vertices.at(i) << " gave projection " << temp << " with length " << temp.len());
 	}
-	
-	println("\n\nThe start point: " << proj_start << ", end point: " << proj_end);
-	//println("max: " << proj_max.len() << ", min: " << proj_min.len() << " on axis " << axis);
-	return Vec(proj_start.len(),proj_end.len());
+	Vec res = proj_end - proj_start;
+	return proj_end - proj_start;
 }
+	
