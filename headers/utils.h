@@ -55,6 +55,13 @@ public:
 		return false;
 	}
 
+	bool operator!=(Vec& other) {
+		if (this->x == other.x && this->y && other.y) {
+			return false;
+		}
+		return true;
+	}
+
 	double dot(Vec& other) {
 		return (this->x * other.x) + (this->y * other.y);
 	}
