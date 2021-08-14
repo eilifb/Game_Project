@@ -56,6 +56,18 @@ void Polygon::add_axises(){
 	}
 }
 
+void Polygon::complete() {
+	this->add_edges();
+	this->add_axises();
+}
+
+void Polygon::move(Vec v) {
+	for (int i = 0; i < vertices.size(); i++) {
+		vertices.at(i) = vertices.at(i) + v;
+		edges.at(i) = edges.at(i) + v;
+	}
+}
+
 void  Polygon::operator+(const Vec& other) {
 	this->vertices.push_back(other);
 }

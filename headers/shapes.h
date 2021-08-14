@@ -30,6 +30,9 @@ public:
 
 	void add_edges();
 	void add_axises();
+	void complete();
+
+	void move(Vec v);
 	
 	void print_vertices();
 	void print_edges();
