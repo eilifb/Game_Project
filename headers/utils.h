@@ -48,14 +48,14 @@ public:
 		return Vec(this->x * other, this->y * other);
 	}
 
-	bool operator==(Vec& other) {
+	bool operator==(const Vec& other) {
 		if (this->x == other.x && this->y && other.y) {
 			return true;
 		}
 		return false;
 	}
 
-	bool operator!=(Vec& other) {
+	bool operator!=(const Vec& other) {
 		if (this->x == other.x && this->y && other.y) {
 			return false;
 		}
