@@ -36,10 +36,10 @@ Vec Collision::check_collision(Polygon a, Polygon b){
 			}
 		}
 		if (b_min > a_max) {
-			return;
+			return Vec(0,0);
 		}
 		if (b_max < a_min) {
-			return;
+			return Vec(0,0);
 		}
 
 		if (b_min > a_min && b_min < a_max) {
@@ -84,12 +84,10 @@ Vec Collision::check_collision(Polygon a, Polygon b){
 			}
 		}
 		if (b_min > a_max) {
-			println("no collision");
-			return;
+			return Vec(0,0);
 		}
 		if (b_max < a_min) {
-			println("no collision");
-			return;
+			return Vec(0,0);
 		}
 
 		if (b_min > a_min && b_min < a_max) {
@@ -106,6 +104,6 @@ Vec Collision::check_collision(Polygon a, Polygon b){
 		}
 	}
 
-	return;
+	return mtv;
 }
 	
