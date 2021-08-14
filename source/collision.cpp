@@ -11,7 +11,9 @@ void Collision::check_collision(Polygon a, Polygon b){
 	double overlap_check = 0;
 	Vec mtv(DBL_MAX,DBL_MAX);
 	Vec mtv_check(0,0);
-	/*for(Vec axis : a.axises) {
+	
+	for (Vec axis : a.axises) {
+		/*
 		p1 = this->project(a, axis);
 		p2 = this->project(b, axis);
 		
@@ -25,26 +27,122 @@ void Collision::check_collision(Polygon a, Polygon b){
 
 		if (mtv_check.len() < mtv.len()) {
 			mtv = mtv_check;
+		}*/
+
+		double a_max = 0;
+		double a_min = DBL_MAX;
+		double b_max = 0;
+		double b_min = DBL_MAX;
+
+		double test;
+		//In this loop we project the first polygon on one of the axises from polygon b. The goal is to find
+		//the extreme points of the polygon when its projected down to the axis.
+		for (Vec v : a.vertices) {
+			test = axis.dot(v);
+			println(v << " gave " << test);
+			if (test > a_max) {
+				a_max = test;
+			}
+			if (test < a_min) {
+				a_min = test;
+			}
 		}
-	}*/
-	println("done with first loop")
-	for (Vec axis : b.axises) {
-		p1 = this->project(a, axis);
-		p2 = this->project(b, axis);
-		if ((p1.y < p2.x) || !(p2.y < p1.x)) {
-			std::cout << "no overlap! " << std::endl;
-			//break;
+		for (Vec v : b.vertices) {
+			test = axis.dot(v);
+			println(v << " gave " << test);
+			if (test > b_max) {
+				b_max = test;
+			}
+			if (test < b_min) {
+				b_min = test;
+			}
+		}
+		if (b_min > a_max) {
+			println("no collision");
+		}
+		if (b_max < a_min) {
+			println("no collision");
 		}
 
-		mtv_check = axis * (p2.len() - p1.len());
-		println("\naxis " << axis << " gave p1: " << p1.len() << " and p2: " << p2.len() << " with overlap " << mtv_check << ", len " << mtv_check.len());
+		println("if " << b_min << " > " << a_min << " && " << b_min << " < " << a_max);
+		if (b_min > a_min && b_min < a_max) {
+			mtv_check = axis * (a_max - b_min);
+			println("b colliding in from right");
+		}
+		println("if " << b_max << ">" << a_min << " && " << b_max << " < " << a_max);
+		if (b_max > a_min && b_max < a_max) {
+			mtv_check = axis * (a_min - b_max);
+			println("b colliding in from left");
+		}
+
+
+		//mtv_check = axis * (p2.len() - p1.len());
+		//println("\naxis " << axis << " gave p1: " << p1.len() << " and p2: " << p2.len() << " with overlap " << mtv_check << ", len " << mtv_check.len());
 
 		if (mtv_check.len() < mtv.len()) {
 			mtv = mtv_check;
 		}
-		break;
-	}	
+	}
+	println("done with first loop")
+
+	for (Vec axis : b.axises) {
+
+		double a_max = 0;
+		double a_min = DBL_MAX;
+		double b_max = 0;
+		double b_min = DBL_MAX;
+
+		double test;
+		//In this loop we project the first polygon on one of the axises from polygon b. The goal is to find
+		//the extreme points of the polygon when its projected down to the axis.
+		for (Vec v : a.vertices) {
+			test = axis.dot(v);
+			println(v << " gave " << test);
+			if (test > a_max) {
+				a_max = test;
+			}
+			if (test < a_min) {
+				a_min = test;
+			}
+		}
+		for (Vec v : b.vertices) {
+			test = axis.dot(v);
+			println(v << " gave " << test);
+			if (test > b_max) {
+				b_max = test;
+			}
+			if (test < b_min) {
+				b_min = test;
+			}
+		}
+		if (b_min > a_max) {
+			println("no collision");
+		}
+		if (b_max < a_min) {
+			println("no collision");
+		}
+
+		println("if " << b_min << " > " << a_min << " && " << b_min << " < " << a_max);
+		if (b_min > a_min && b_min < a_max) {
+			mtv_check = axis*(a_max - b_min);
+			println("b colliding in from right");
+		}
+		println("if " << b_max << ">" <<  a_min << " && " << b_max << " < " << a_max);
+		if (b_max > a_min && b_max < a_max) {
+			mtv_check = axis * (a_min - b_max);
+			println("b colliding in from left");
+		}
+
+
+		//mtv_check = axis * (p2.len() - p1.len());
+		//println("\naxis " << axis << " gave p1: " << p1.len() << " and p2: " << p2.len() << " with overlap " << mtv_check << ", len " << mtv_check.len());
+
+		if (mtv_check.len() < mtv.len()) {
+			mtv = mtv_check;
+		}
+	}
 	
+	println("mtv is " << mtv << ", length " << mtv.len());
 	//println("The polygons overlap. MTV is " << mtv << " with a length of " << mtv.len())
 	return;
 }

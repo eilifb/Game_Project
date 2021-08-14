@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\eilif\Prosjekter\SDL2_image-2.0.5\include;C:\Users\eilif\Prosjekter\SDL2-2.0.12\include;$(MSBuildProjectDirectory)\headers;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\eilif\Prosjekter\SDL2_image-2.0.5\lib\x64;C:\Users\eilif\Prosjekter\SDL2-2.0.12\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Eilif B\Programmering\Libraries\SDL2_image-2.0.4\include;C:\Users\Eilif B\Programmering\Libraries\SDL2\include;$(MSBuildProjectDirectory)\headers;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Eilif B\Programmering\Libraries\SDL2_image-2.0.4\lib\x64;C:\Users\Eilif B\Programmering\Libraries\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
