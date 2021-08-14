@@ -6,8 +6,7 @@ class Polygon;
 
 class Collision {
 public:
-	void check_collision(Polygon a, Polygon b);
-	Vec project(Polygon p, Vec axis);
+	Vec check_collision(Polygon a, Polygon b);
 };
 
 
