@@ -145,11 +145,13 @@
     <ClCompile Include="source\collision.cpp" />
     <ClCompile Include="source\shapes.cpp" />
     <ClCompile Include="source\Source.cpp" />
+    <ClCompile Include="source\test_suite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\collision.h" />
     <ClInclude Include="headers\shapes.h" />
     <ClInclude Include="headers\Source.h" />
+    <ClInclude Include="headers\test_suite.h" />
     <ClInclude Include="headers\utils.h" />
   </ItemGroup>
   <ItemGroup>
