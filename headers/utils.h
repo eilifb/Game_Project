@@ -48,6 +48,13 @@ public:
 		return Vec(this->x * other, this->y * other);
 	}
 
+	bool operator==(Vec& other) {
+		if (this->x == other.x && this->y && other.y) {
+			return true;
+		}
+		return false;
+	}
+
 	double dot(Vec& other) {
 		return (this->x * other.x) + (this->y * other.y);
 	}
