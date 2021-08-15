@@ -2,6 +2,13 @@
 #include "shapes.h"
 #include <iostream>
 
+
+/// <summary>
+/// Checks if a Polygon is colliding with another Polygon.
+/// </summary>
+/// <param name="a">Polygon that is collided with</param>
+/// <param name="b">Polygon that "doing" the collision</param>
+/// <returns>A Vec() that describes how far away Polygon b needs to be moved to seperate the polygons.</returns>
 Vec Collision::check_collision(Polygon a, Polygon b){
 	Vec mtv(DBL_MAX,DBL_MAX);
 	Vec mtv_check(0,0);
