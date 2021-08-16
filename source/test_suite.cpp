@@ -79,5 +79,6 @@ bool test::test_collision() {
 	if (col.check_collision(box1, triangle_4) != Vec(0, 0)) {
 		return false;
 	}
+
 	return true;
 }
