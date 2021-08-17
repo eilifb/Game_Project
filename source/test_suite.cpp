@@ -116,17 +116,31 @@ double test::test_collision_time(){
 		polv.push_back(Polygon(start));
 	}
 
-	auto t1 = std::chrono::high_resolution_clock::now();
-	for (Polygon pol1 : polv) {
-		for (Polygon pol2 : polv) {
-			col.check_collision(pol1, pol2);
-		}
-	}
-	auto t2 = std::chrono::high_resolution_clock::now();
-	auto ms_int = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1);
-	std::chrono::duration<double, std::milli> ms_double = t2 - t1;
+	
 
-	std::cout << "execution time was " << ms_double.count() << "ms" << std::endl;
-	return ms_double.count();
+	std::chrono::duration<double, std::milli> ms_double;
+	std::vector<double> time_vec;
+	for (int i = 0; i < 10; i++) {
+		auto t1 = std::chrono::high_resolution_clock::now();
+		for (Polygon pol1 : polv) {
+			for (Polygon pol2 : polv) {
+				col.check_collision(pol1, pol2);
+			}
+		}
+		auto t2 = std::chrono::high_resolution_clock::now();
+		ms_double = t2 - t1;
+		std::cout << "execution time was " << ms_double.count() << "ms" << std::endl;
+
+		time_vec.push_back(ms_double.count());
+	}
+
+	double tot = 0;
+	for (double avg : time_vec) {
+		tot += avg;
+	}
+	tot = tot / time_vec.size();
+	println("avg exec time was: " << tot);
+
+	return tot;
 
 }
