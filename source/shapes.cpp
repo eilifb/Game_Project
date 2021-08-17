@@ -1,18 +1,17 @@
 #include "shapes.h"
+#include "utils.h"
 #include <iostream>
 
-Polygon::Polygon(std::vector<Vec>& input) : vertices(input){
-	this->vertices = input;
-	this->add_edges();
-	this->add_axises();
+Polygon::Polygon(std::vector<Vec> input) : vertices(input){
+	add_edges();
+	add_axises();
 }
 
 Polygon::Polygon(Vec input){
-	this->vertices.push_back(input);
+	vertices.push_back(input);
 }
 
-Polygon::~Polygon(){
-}
+Polygon::~Polygon(){}
 
 
 void Polygon::add_edges(){
@@ -24,7 +23,7 @@ void Polygon::add_edges(){
 
 void Polygon::print_vertices(){
 	std::cout << "printing vertices: ";
-	for (Vec v : this->vertices) {
+	for (Vec v : vertices) {
 		std::cout << v << ", ";
 	}
 	std::cout << std::endl;
@@ -32,7 +31,7 @@ void Polygon::print_vertices(){
 
 void Polygon::print_edges(){
 	std::cout << "printing edges: ";
-	for (Vec v : this->edges) {
+	for (Vec v : edges) {
 		std::cout << v << ", ";
 	}
 	std::cout << std::endl;
@@ -40,7 +39,7 @@ void Polygon::print_edges(){
 
 void Polygon::print_axises(){
 	std::cout << "printing axises: ";
-	for (Vec v : this->axises) {
+	for (Vec v : axises) {
 		std::cout << v << ", ";
 	}
 	std::cout << std::endl;
@@ -50,15 +49,16 @@ void Polygon::print_axises(){
 void Polygon::add_axises(){
 	for (Vec v : edges) {
 		if (v.len() == 0) {
-			std::cout << "vector length 0, something must have gone wrong" << std::endl;
+			std::cerr << "vector length 0 when trying to compute axis in polygon, something must have gone wrong" << std::endl;
+			print_vertices();
 		}
 		axises.push_back(v.normal() * 1/v.len());
 	}
 }
 
 void Polygon::complete() {
-	this->add_edges();
-	this->add_axises();
+	add_edges();
+	add_axises();
 }
 
 void Polygon::move(Vec v) {
@@ -69,10 +69,8 @@ void Polygon::move(Vec v) {
 }
 
 void  Polygon::operator+(const Vec& other) {
-	this->vertices.push_back(other);
+	vertices.push_back(other);
 }
-
-
 
 
 std::ostream& operator<<(std::ostream& out, const Polygon& p){

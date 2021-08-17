@@ -1,6 +1,7 @@
 #include "test_suite.h"
-#include "collision.h"
+#include "utils.h"
 #include "shapes.h"
+#include "collision.h"
 #include <iostream>
 
 bool test::test_collision() {
@@ -32,14 +33,14 @@ bool test::test_collision() {
 	colliding_triangle_2.add_edges();
 	colliding_triangle_2.add_axises();
 
-	Polygon triangle_1 = (Vec(6, 10));
+	Polygon triangle_1(Vec(6, 10));
 	triangle_1 + Vec(7, 11);
 	triangle_1 + Vec(7, 10);
 	triangle_1.complete();
 
 	Polygon triangle_2(Vec(11, 6));
 	triangle_2 + Vec(12, 6);
-	triangle_2 + Vec(11, 6);
+	triangle_2 + Vec(11, 5);
 	triangle_2.complete();
 
 	Polygon triangle_3(Vec(8, 1));
@@ -57,12 +58,13 @@ bool test::test_collision() {
 		std::cout << "Collision test between " << box1 << " and " << colliding_box_1 << " failed. MTV should have been " << Vec(0, 2) << ", but is " << col.check_collision(box1, colliding_box_1) << std::endl;
 		return false;
 	}
-	if (col.check_collision(box1, colliding_triangle_1) != Vec(-2, 0)) {
-		std::cout	<< "Collision test between " << box1 << " and " 
+
+	if (col.check_collision(box1, colliding_triangle_1) != Vec(-0x1.9999800000000p-3, -0)) {
+		std::cout	<< "Collision test between " << box1 << " and "
 					<< colliding_triangle_1 << " failed. MTV should have been " 
-					<< Vec(-2, 0) << ", but is " << col.check_collision(box1, colliding_triangle_1) << std::endl;
+					<< Vec(-0.2, -0) << ", but is " << col.check_collision(box1, colliding_triangle_1) << std::endl;
 		return false;
-	}
+	} 
 	if (col.check_collision(box1, colliding_triangle_2) != Vec(0,0) ){
 		return false;
 	}
@@ -79,6 +81,10 @@ bool test::test_collision() {
 	if (col.check_collision(box1, triangle_4) != Vec(0, 0)) {
 		return false;
 	}
+
+	triangle_1.move(Vec(12, 14));
+
+	Polygon k(Vec(0, 0));
 
 	return true;
 }

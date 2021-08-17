@@ -4,6 +4,11 @@
 class Vec;
 class Polygon;
 
+
+/// <summary>
+/// class handling collision checking.
+/// TODO: consider changing this to a namespace. No real reason to exist as a class.
+/// </summary>
 class Collision {
 public:
 	/// <summary>

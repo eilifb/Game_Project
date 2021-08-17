@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <iostream>
+#include <cstdio>
 #include <SDL.h>
 #include "shapes.h"
 #include "collision.h"
 #include "test_suite.h"
+#include "utils.h"
 
 void test_vector() {
 	Vec a, b;
@@ -23,7 +25,8 @@ int main(int argc, char* argv[]) {
 
 	test::test_collision();
 
-
+	//std::cout << -0.2f << " : " << std::hexfloat << -0.2f << std::endl;
+	double n = -0x1.9999800000000p-3;
 
 
 	return 0;

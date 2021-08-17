@@ -1,4 +1,5 @@
 #include "collision.h"
+#include "utils.h"
 #include "shapes.h"
 #include <iostream>
 
@@ -10,12 +11,12 @@ Vec Collision::check_collision(Polygon a, Polygon b){
 	
 	for (Vec axis : a.axises) {
 
-		double a_max = 0;
-		double a_min = DBL_MAX;
-		double b_max = 0;
-		double b_min = DBL_MAX;
+		float a_max = 0;
+		float a_min = DBL_MAX;
+		float b_max = 0;
+		float b_min = DBL_MAX;
 
-		double test;
+		float test;
 		//In this loop we project the first polygon on one of the axises from polygon b. The goal is to find
 		//the extreme points of the polygon when its projected down to the axis.
 		for (Vec v : a.vertices) {
@@ -59,12 +60,12 @@ Vec Collision::check_collision(Polygon a, Polygon b){
 
 	for (Vec axis : b.axises) {
 
-		double a_max = 0;
-		double a_min = DBL_MAX;
-		double b_max = 0;
-		double b_min = DBL_MAX;
+		float a_max = 0;
+		float a_min = DBL_MAX;
+		float b_max = 0;
+		float b_min = DBL_MAX;
 
-		double test;
+		float test;
 		//In this loop we project the first polygon on one of the axises from polygon b. The goal is to find
 		//the extreme points of the polygon when its projected down to the axis.
 		for (Vec v : a.vertices) {
