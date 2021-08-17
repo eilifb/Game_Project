@@ -25,3 +25,18 @@ New Vec::len() algorythm:
 	avg exec time was: 7248.86ms
 
 Reverting Back.
+
+Testing changes in col.check_collision():
+	execution time was 7186.66ms
+	execution time was 7078.13ms
+	execution time was 7080.82ms
+	execution time was 7162.62ms
+	execution time was 7060.07ms
+	execution time was 7068.71ms
+	execution time was 7092.82ms
+	execution time was 7056.21ms
+	execution time was 7098.77ms
+	execution time was 7059.86ms
+	avg exec time was: 7094.47ms
+
+Reverting back.
