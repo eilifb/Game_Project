@@ -12,6 +12,7 @@ namespace test {
 	/// <returns>true on all tests completed successfully, false on failed test</returns>
 	bool test_collision();
 
+	double test_collision_time();
 
 }
 

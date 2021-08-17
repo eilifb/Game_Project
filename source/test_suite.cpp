@@ -3,6 +3,10 @@
 #include "shapes.h"
 #include "collision.h"
 #include <iostream>
+#include <chrono>
+#include <stdlib.h>
+#include <vector>
+
 
 bool test::test_collision() {
 	Collision col;
@@ -87,4 +91,42 @@ bool test::test_collision() {
 	Polygon k(Vec(0, 0));
 
 	return true;
+}
+
+double test::test_collision_time(){
+
+	Collision col;
+	std::vector<Vec> start;
+	std::vector<Polygon> polv;
+
+
+
+	start.push_back(Vec(10, 10));
+	start.push_back(Vec(20, 10));
+	start.push_back(Vec(20, 20));
+	start.push_back(Vec(10, 20));
+	Polygon p1(start);
+	polv.push_back(p1);
+	
+
+	for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < start.size(); i++) {
+			start.at(i) = start.at(i) + Vec(0, 5);
+		}
+		polv.push_back(Polygon(start));
+	}
+
+	auto t1 = std::chrono::high_resolution_clock::now();
+	for (Polygon pol1 : polv) {
+		for (Polygon pol2 : polv) {
+			col.check_collision(pol1, pol2);
+		}
+	}
+	auto t2 = std::chrono::high_resolution_clock::now();
+	auto ms_int = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1);
+	std::chrono::duration<double, std::milli> ms_double = t2 - t1;
+
+	std::cout << "execution time was " << ms_double.count() << "ms" << std::endl;
+	return ms_double.count();
+
 }

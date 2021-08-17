@@ -1,0 +1,12 @@
+Log of col.check_collision() execution time:
+	execution time was 6771.35ms
+	execution time was 6723.43ms
+	execution time was 6796.8ms
+	execution time was 6720.39ms
+	execution time was 6730.76ms
+	execution time was 6739.79ms
+	execution time was 6713.87ms
+	execution time was 6719.59ms
+	execution time was 6694.41ms
+	execution time was 6736.35ms
+	avg exec time was: 6734.67ms
