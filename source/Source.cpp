@@ -24,8 +24,13 @@ void test_vector() {
 
 int main(int argc, char* argv[]) {
 	printf("setting up\n");
-	//test::test_collision();
+
+	Vec a(10, 10);
+	a.len();
+	a.len();
 	
+	test::test_collision();
+	test::test_collision_time();
 	//std::cout << -0.2f << " : " << std::hexfloat << -0.2f << std::endl;
 	double n = -0x1.9999800000000p-3;
 

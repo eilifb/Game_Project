@@ -10,3 +10,18 @@ Log of col.check_collision() execution time:
 	execution time was 6694.41ms
 	execution time was 6736.35ms
 	avg exec time was: 6734.67ms
+
+New Vec::len() algorythm:
+	execution time was 7323.2ms
+	execution time was 7238.99ms
+	execution time was 7213.17ms
+	execution time was 7261.09ms
+	execution time was 7204.42ms
+	execution time was 7305.54ms
+	execution time was 7276.66ms
+	execution time was 7266.08ms
+	execution time was 7206.07ms
+	execution time was 7193.36ms
+	avg exec time was: 7248.86ms
+
+Reverting Back.

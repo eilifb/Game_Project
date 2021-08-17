@@ -139,7 +139,7 @@ double test::test_collision_time(){
 		tot += avg;
 	}
 	tot = tot / time_vec.size();
-	println("avg exec time was: " << tot);
+	println("avg exec time was: " << tot << "ms");
 
 	return tot;
 
