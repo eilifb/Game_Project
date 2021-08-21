@@ -3,10 +3,33 @@
 #include "shapes.h"
 #include "collision.h"
 #include <iostream>
-#include <chrono>
 #include <stdlib.h>
 #include <vector>
 
+test::Timer::Timer(double* input){
+	time_pointer = input;
+	start_point = std::chrono::high_resolution_clock::now();
+}
+
+
+test::Timer::~Timer(){
+	time();
+}
+
+void test::Timer::reset() {
+	start_point = std::chrono::high_resolution_clock::now();
+}
+
+void test::Timer::time(){
+	auto end_point = std::chrono::high_resolution_clock::now();
+
+	auto start = std::chrono::time_point_cast<std::chrono::microseconds>(start_point).time_since_epoch().count();
+	auto end = std::chrono::time_point_cast<std::chrono::microseconds>(end_point).time_since_epoch().count();
+
+	long long duration = end - start;
+	double result = (double)duration + 99.0;
+	*time_pointer = result;
+}
 
 bool test::test_collision() {
 	Collision col;
@@ -118,20 +141,20 @@ double test::test_collision_time(){
 
 	
 
-	std::chrono::duration<double, std::milli> ms_double;
+	double time_taken;
 	std::vector<double> time_vec;
 	for (int i = 0; i < 10; i++) {
-		auto t1 = std::chrono::high_resolution_clock::now();
-		for (Polygon pol1 : polv) {
-			for (Polygon pol2 : polv) {
-				col.check_collision(pol1, pol2);
+
+		{test::Timer time_collision_time(&time_taken);
+			for (Polygon pol1 : polv) {
+				for (Polygon pol2 : polv) {
+					col.check_collision(pol1, pol2);
+				}
 			}
 		}
-		auto t2 = std::chrono::high_resolution_clock::now();
-		ms_double = t2 - t1;
-		std::cout << "execution time was " << ms_double.count() << "ms" << std::endl;
+		std::cout << "execution time was " << time_taken*0.001 << "milli seconds" << std::endl;
 
-		time_vec.push_back(ms_double.count());
+		time_vec.push_back(time_taken * 0.001);
 	}
 
 	double tot = 0;
@@ -144,3 +167,5 @@ double test::test_collision_time(){
 	return tot;
 
 }
+
+

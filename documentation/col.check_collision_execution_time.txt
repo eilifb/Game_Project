@@ -40,3 +40,16 @@ Testing changes in col.check_collision():
 	avg exec time was: 7094.47ms
 
 Reverting back.
+
+	Testing fast inverse square root
+	execution time was 6958.76ms
+	execution time was 6834.8ms
+	execution time was 6829.49ms
+	execution time was 6862.08ms
+	execution time was 6822.77ms
+	execution time was 6846.1ms
+	execution time was 6810.47ms
+	execution time was 6835.77ms
+	execution time was 6829.53ms
+	execution time was 6826.3ms
+	avg exec time was: 6845.61ms
