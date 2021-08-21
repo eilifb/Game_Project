@@ -90,19 +90,44 @@ $(document).ready(function(){initNavTree('test__suite_8h_source.html',''); initR
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TEST_SUITE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TEST_SUITE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespacetest.html">    7</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetest.html">test</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespacetest.html#a1c2d653e6352c0a06a4622746116bf27">test_collision</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">double</span> test_collision_time();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// !TEST_SUITE_H</span></div>
-<div class="ttc" id="anamespacetest_html"><div class="ttname"><a href="namespacetest.html">test</a></div><div class="ttdoc">Namespace for all the test functions.</div><div class="ttdef"><b>Definition:</b> test_suite.h:7</div></div>
-<div class="ttc" id="anamespacetest_html_a1c2d653e6352c0a06a4622746116bf27"><div class="ttname"><a href="namespacetest.html#a1c2d653e6352c0a06a4622746116bf27">test::test_collision</a></div><div class="ttdeci">bool test_collision()</div><div class="ttdoc">Caveman tier testing function for testing check_collision</div><div class="ttdef"><b>Definition:</b> test_suite.cpp:11</div></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespacetest.html">    8</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetest.html">test</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classtest_1_1_timer.html">   28</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classtest_1_1_timer.html">Timer</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classtest_1_1_timer.html#a2b6d577f27c9be0137217625007f87e5">Timer</a>(<span class="keywordtype">double</span>* input);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classtest_1_1_timer.html#a2b6d577f27c9be0137217625007f87e5">Timer</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ~<a class="code" href="classtest_1_1_timer.html">Timer</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_1_1_timer.html#aa1197d84d71da94b8e2fa58f84d440af">reset</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="classtest_1_1_timer.html#a63b44dfb9c26d8c2a8b3934b61829b08">stop</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::chrono::time_point&lt;std::chrono::high_resolution_clock&gt; start_point;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">double</span>* time_pointer;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespacetest.html#a1c2d653e6352c0a06a4622746116bf27">test_collision</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">double</span> test_collision_time();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// !TEST_SUITE_H</span></div>
+<div class="ttc" id="aclasstest_1_1_timer_html"><div class="ttname"><a href="classtest_1_1_timer.html">test::Timer</a></div><div class="ttdoc">A timer that measures time in microseconds.</div><div class="ttdef"><b>Definition:</b> test_suite.h:28</div></div>
+<div class="ttc" id="aclasstest_1_1_timer_html_a2b6d577f27c9be0137217625007f87e5"><div class="ttname"><a href="classtest_1_1_timer.html#a2b6d577f27c9be0137217625007f87e5">test::Timer::Timer</a></div><div class="ttdeci">Timer()</div><div class="ttdoc">Constructs a timer object without taking a double to record to.</div><div class="ttdef"><b>Definition:</b> test_suite.cpp:14</div></div>
+<div class="ttc" id="aclasstest_1_1_timer_html_a63b44dfb9c26d8c2a8b3934b61829b08"><div class="ttname"><a href="classtest_1_1_timer.html#a63b44dfb9c26d8c2a8b3934b61829b08">test::Timer::stop</a></div><div class="ttdeci">double stop()</div><div class="ttdoc">records the time between construction or last called reset and this call, and updates input with the ...</div><div class="ttdef"><b>Definition:</b> test_suite.cpp:26</div></div>
+<div class="ttc" id="aclasstest_1_1_timer_html_aa1197d84d71da94b8e2fa58f84d440af"><div class="ttname"><a href="classtest_1_1_timer.html#aa1197d84d71da94b8e2fa58f84d440af">test::Timer::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">resets the timer.</div><div class="ttdef"><b>Definition:</b> test_suite.cpp:22</div></div>
+<div class="ttc" id="anamespacetest_html"><div class="ttname"><a href="namespacetest.html">test</a></div><div class="ttdoc">Namespace for all the test functions.</div><div class="ttdef"><b>Definition:</b> test_suite.h:8</div></div>
+<div class="ttc" id="anamespacetest_html_a1c2d653e6352c0a06a4622746116bf27"><div class="ttname"><a href="namespacetest.html#a1c2d653e6352c0a06a4622746116bf27">test::test_collision</a></div><div class="ttdeci">bool test_collision()</div><div class="ttdoc">Caveman tier testing function for testing check_collision</div><div class="ttdef"><b>Definition:</b> test_suite.cpp:38</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

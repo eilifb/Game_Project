@@ -7,28 +7,32 @@
 #include <vector>
 
 test::Timer::Timer(double* input){
+	start_point = std::chrono::high_resolution_clock::now();
 	time_pointer = input;
+}
+
+test::Timer::Timer() {
 	start_point = std::chrono::high_resolution_clock::now();
 }
 
-
 test::Timer::~Timer(){
-	time();
+	stop();
 }
 
 void test::Timer::reset() {
 	start_point = std::chrono::high_resolution_clock::now();
 }
 
-void test::Timer::time(){
+double test::Timer::stop(){
 	auto end_point = std::chrono::high_resolution_clock::now();
 
 	auto start = std::chrono::time_point_cast<std::chrono::microseconds>(start_point).time_since_epoch().count();
 	auto end = std::chrono::time_point_cast<std::chrono::microseconds>(end_point).time_since_epoch().count();
 
 	long long duration = end - start;
-	double result = (double)duration + 99.0;
+	double result = (double)duration;
 	*time_pointer = result;
+	return result;
 }
 
 bool test::test_collision() {
@@ -152,7 +156,7 @@ double test::test_collision_time(){
 				}
 			}
 		}
-		std::cout << "execution time was " << time_taken*0.001 << "milli seconds" << std::endl;
+		std::cout << "execution time was " << time_taken*0.001 << "ms" << std::endl;
 
 		time_vec.push_back(time_taken * 0.001);
 	}
