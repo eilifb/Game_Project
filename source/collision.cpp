@@ -6,15 +6,15 @@
 
 
 Vec Collision::check_collision(Polygon a, Polygon b){
-	Vec mtv(DBL_MAX,DBL_MAX);
+	Vec mtv(FLT_MAX,FLT_MAX);
 	Vec mtv_check(0,0);
 	
 	for (Vec axis : a.axises) {
 
 		float a_max = 0;
-		float a_min = DBL_MAX;
+		float a_min = FLT_MAX;
 		float b_max = 0;
-		float b_min = DBL_MAX;
+		float b_min = FLT_MAX;
 
 		float test;
 		//In this loop we project the first polygon on one of the axises from polygon b. The goal is to find
@@ -61,9 +61,9 @@ Vec Collision::check_collision(Polygon a, Polygon b){
 	for (Vec axis : b.axises) {
 
 		float a_max = 0;
-		float a_min = DBL_MAX;
+		float a_min = FLT_MAX;
 		float b_max = 0;
-		float b_min = DBL_MAX;
+		float b_min = FLT_MAX;
 
 		float test;
 		//In this loop we project the first polygon on one of the axises from polygon b. The goal is to find

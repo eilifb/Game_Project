@@ -52,9 +52,9 @@ bool test::test_collision() {
 	colliding_box_1.add_edges();
 	colliding_box_1.add_axises();
 
-	Polygon colliding_triangle_1(Vec(3.6, 4.9));
-	colliding_triangle_1 + Vec(5.2, 4.6);
-	colliding_triangle_1 + Vec(3.6, 4.4);
+	Polygon colliding_triangle_1(Vec(3.6f, 4.9f));
+	colliding_triangle_1 + Vec(5.2f, 4.6f);
+	colliding_triangle_1 + Vec(3.6f, 4.4f);
 	colliding_triangle_1.add_edges();
 	colliding_triangle_1.add_axises();
 
@@ -93,7 +93,7 @@ bool test::test_collision() {
 	if (col.check_collision(box1, colliding_triangle_1) != Vec(-0x1.9999800000000p-3, -0)) {
 		std::cout	<< "Collision test between " << box1 << " and "
 					<< colliding_triangle_1 << " failed. MTV should have been " 
-					<< Vec(-0.2, -0) << ", but is " << col.check_collision(box1, colliding_triangle_1) << std::endl;
+					<< Vec(-0.2f, -0.0f) << ", but is " << col.check_collision(box1, colliding_triangle_1) << std::endl;
 		return false;
 	} 
 	if (col.check_collision(box1, colliding_triangle_2) != Vec(0,0) ){

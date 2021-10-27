@@ -15,7 +15,7 @@ public:
 	/// Checks if a Polygon is colliding with another Polygon.
 	/// </summary>
 	/// <param name="a">First Polygon</param>
-	/// <param name="b">Second Polygon <see cref="utils.h/Vec"/></param>
+	/// <param name="b">Second Polygon <see cref="Vec"/></param>
 	/// <returns>A Vec that describes how far away Polygon b needs to be moved to seperate the polygons.</returns>
 	Vec check_collision(Polygon a, Polygon b);
 };
