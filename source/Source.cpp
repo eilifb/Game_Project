@@ -12,11 +12,8 @@
 
 int main(int argc, char* argv[]) {
 	printf("setting up\n");
-
-	test::Timer();
-
-	test::test_collision_time();
 	
+
 
 
 	std::cout << "Exiting..." << std::endl;
